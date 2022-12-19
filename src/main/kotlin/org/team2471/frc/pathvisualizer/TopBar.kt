@@ -9,6 +9,7 @@ import javafx.scene.input.KeyCombination
 object TopBar : MenuBar() {
     init {
         val menuFile = Menu("File")
+
         val openMenuItem = MenuItem("Open...")
         openMenuItem.accelerator = KeyCombination.keyCombination("Ctrl + O")
         openMenuItem.setOnAction {

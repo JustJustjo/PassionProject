@@ -2,13 +2,12 @@ package org.team2471.frc.pathvisualizer
 
 import javafx.application.Application
 import javafx.application.Platform
-import javafx.geometry.Orientation
 import javafx.geometry.Rectangle2D
+import javafx.scene.Node
 import javafx.scene.Scene
-import javafx.scene.control.ScrollPane
-import javafx.scene.control.SplitPane
-import javafx.scene.control.Tab
-import javafx.scene.control.TabPane
+import javafx.scene.control.Button
+import javafx.scene.control.ButtonBar
+import javafx.scene.control.ToolBar
 import javafx.scene.layout.BorderPane
 import javafx.stage.Screen
 import javafx.stage.Stage
@@ -19,7 +18,7 @@ class PathVisualizer : Application() {
         // drawing
         lateinit var stage: Stage
         var windowResizing = false
-        val verticalSplitPane = SplitPane()
+        val buttonBar = ButtonBar()
         @JvmStatic
         fun main(args: Array<String>) {
             launch(PathVisualizer::class.java, *args)
@@ -31,28 +30,34 @@ class PathVisualizer : Application() {
         stage.title = "Path Visualizer"
         PathVisualizer.stage = stage
 
-        verticalSplitPane.items.addAll(FieldPane)
-        verticalSplitPane.orientation = Orientation.VERTICAL
-        verticalSplitPane.setDividerPositions(0.85)
+//        verticalSplitPane.items.addAll(FieldPane)
+//        verticalSplitPane.orientation = Orientation.VERTICAL
+//        verticalSplitPane.setDividerPositions(0.85)
 
-        val pathScrollPane = ScrollPane(ControlPanel)
-        pathScrollPane.hbarPolicy = ScrollPane.ScrollBarPolicy.AS_NEEDED
-        pathScrollPane.vbarPolicy = ScrollPane.ScrollBarPolicy.AS_NEEDED
+//        val toolBar = ToolBar(ControlPanel)
 
 
-        val tabPane = TabPane()
-        val tabScroll = Tab("Path Editing")
-        tabScroll.content = pathScrollPane
-        tabScroll.isClosable = false
 
 
-//        tabPane.tabs.addAll(tabScroll)
+
+//        val horizontalSplitPane = SplitPane(toolBar)
 
 
-        val horizontalSplitPane = SplitPane(verticalSplitPane, tabPane)
+//        buttonOne.setOnAction {
+//            println("one")
+//        }
+        val buttonBar = ButtonBar()
+        val buttonOne = Button("one")
+        buttonOne.setOnAction {
+            println("Button ONE!!")
+        }
+        buttonBar.buttons.addAll(buttonOne)
 
-        val borderPane = BorderPane(horizontalSplitPane)
+
+
+        val borderPane = BorderPane()
         borderPane.top = TopBar
+        borderPane.center = buttonBar
 
         val screen = Screen.getPrimary()
 
