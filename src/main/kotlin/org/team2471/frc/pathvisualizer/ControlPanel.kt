@@ -3,7 +3,7 @@ package org.team2471.frc.pathvisualizer
 import javafx.scene.control.*
 
 
-object ControlPanel : Button() {
+object ControlPanel : ButtonBar() {
     init {
         println("ControlPanel says hi!")
 
@@ -21,5 +21,12 @@ object ControlPanel : Button() {
         buttonThree.setOnAction {
             println("three")
         }
+
+        val buttonFour = Button("four")
+        buttonFour.setOnAction {
+            println("four")
+        }
+
+        ControlPanel.buttons.addAll(buttonOne, buttonTwo, buttonThree, buttonFour)
     }
 }

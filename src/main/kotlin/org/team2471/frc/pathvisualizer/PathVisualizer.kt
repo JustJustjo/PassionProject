@@ -1,7 +1,6 @@
 package org.team2471.frc.pathvisualizer
 
 import javafx.application.Application
-import javafx.application.Platform
 import javafx.geometry.Rectangle2D
 import javafx.scene.Scene
 import javafx.scene.control.Button
@@ -15,8 +14,6 @@ class PathVisualizer : Application() {
     companion object {
         // drawing
         lateinit var stage: Stage
-        var windowResizing = false
-        val buttonBar = ButtonBar()
         @JvmStatic
         fun main(args: Array<String>) {
             launch(PathVisualizer::class.java, *args)
@@ -28,48 +25,26 @@ class PathVisualizer : Application() {
         stage.title = "Path Visualizer"
         PathVisualizer.stage = stage
 
-//        verticalSplitPane.items.addAll(FieldPane)
-//        verticalSplitPane.orientation = Orientation.VERTICAL
-//        verticalSplitPane.setDividerPositions(0.85)
-
-//        val toolBar = ToolBar(ControlPanel)
-
-
-
-
-
-//        val horizontalSplitPane = SplitPane(toolBar)
-
-
-//        buttonOne.setOnAction {
-//            println("one")
-//        }
-        val buttonBar = ButtonBar()
-        val buttonOne = Button("one")
-        buttonOne.setOnAction {
-            println("Button ONE!!")
+        val hellobutton = Button()
+        hellobutton.setOnAction {
+            println("HELLO")
         }
-        buttonBar.buttons.addAll(buttonOne)
-
+        hellobutton.height + 10
+        hellobutton.width + 10
+        hellobutton.contentDisplay
 
 
         val borderPane = BorderPane()
         borderPane.top = TopBar
-        borderPane.center = buttonBar
+        borderPane.top = ControlPanel
 
         val screen = Screen.getPrimary()
 
         val bounds = Rectangle2D(screen.visualBounds.minX, screen.visualBounds.minY, screen.visualBounds.width, screen.visualBounds.height - 30)
         stage.scene = Scene(borderPane, bounds.width, bounds.height)
         stage.scene.stylesheets.add("assets/theme.css")
-        stage.scene.addPreLayoutPulseListener {
-            windowResizing = true
-            Platform.runLater {
-                windowResizing = false
-            }
-        }
         stage.sizeToScene()
-        stage.isMaximized = true
+//        stage.isMaximized = true
         stage.show()
     }
 }
