@@ -3,11 +3,9 @@ package org.team2471.frc.pathvisualizer
 import javafx.application.Application
 import javafx.application.Platform
 import javafx.geometry.Rectangle2D
-import javafx.scene.Node
 import javafx.scene.Scene
 import javafx.scene.control.Button
 import javafx.scene.control.ButtonBar
-import javafx.scene.control.ToolBar
 import javafx.scene.layout.BorderPane
 import javafx.stage.Screen
 import javafx.stage.Stage
