@@ -9,7 +9,7 @@ object ControlPanel : ButtonBar() {
 
         val buttonOne = Button("one")
         buttonOne.setOnAction {
-            println("one")
+            println(FieldPane)
         }
 
         val buttonTwo = Button("two")

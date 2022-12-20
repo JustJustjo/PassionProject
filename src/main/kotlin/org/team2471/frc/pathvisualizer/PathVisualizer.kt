@@ -2,13 +2,8 @@ package org.team2471.frc.pathvisualizer
 
 import javafx.application.Application
 import javafx.geometry.Rectangle2D
-import javafx.scene.Group
 import javafx.scene.Scene
-import javafx.scene.canvas.Canvas
-import javafx.scene.control.Button
-import javafx.scene.control.ButtonBar
 import javafx.scene.layout.BorderPane
-import javafx.scene.paint.Color
 import javafx.stage.Screen
 import javafx.stage.Stage
 
@@ -17,6 +12,7 @@ class PathVisualizer : Application() {
     companion object {
         // drawing
         lateinit var stage: Stage
+        public val quit = false
         @JvmStatic
         fun main(args: Array<String>) {
             launch(PathVisualizer::class.java, *args)
@@ -40,5 +36,6 @@ class PathVisualizer : Application() {
         stage.scene = Scene(borderPane, bounds.width, bounds.height)
         stage.sizeToScene()
         stage.show()
+
     }
 }
