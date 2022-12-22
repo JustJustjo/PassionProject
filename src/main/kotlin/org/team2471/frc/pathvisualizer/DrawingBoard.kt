@@ -10,6 +10,7 @@ object DrawingBoard : Group() {
     val gc = canvas.graphicsContext2D
 
     init {
+        println("DrawingBoard says hi!")
         gc.setFill(Color.LIGHTGRAY)
         gc.fillRect(0.0, 0.0, 740.0, 740.0)
 
@@ -18,7 +19,10 @@ object DrawingBoard : Group() {
 
         canvas.setOnMousePressed {event -> click(event.x, event.y)}
     }
-    fun click(x: Any?, y: Any?) {
-        println("Click cords... x:$x  y:$y")
+    fun click(x: Double, y: Double) {
+//        println("Click cords... x:$x  y:$y")
+        gc.setFill(PathVisualizer.SELECTED_COLOR)
+        gc.fillRect(x - PathVisualizer.SQUARE_SIDES/2, y- PathVisualizer.SQUARE_SIDES/2, PathVisualizer.SQUARE_SIDES, PathVisualizer.SQUARE_SIDES)
+//        gc.restore()
     }
 }
