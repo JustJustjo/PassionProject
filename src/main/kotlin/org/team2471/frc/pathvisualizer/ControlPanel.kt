@@ -1,4 +1,4 @@
-package org.team2471.frc.pathvisualizer
+package org.team2471.frc.Drawing
 
 import javafx.scene.control.*
 
@@ -9,7 +9,7 @@ object ControlPanel : ButtonBar() {
 
         val buttonOne = Button("one")
         buttonOne.setOnAction {
-            println(FieldPane)
+            println(DrawingBoard)
         }
 
         val buttonTwo = Button("two")
