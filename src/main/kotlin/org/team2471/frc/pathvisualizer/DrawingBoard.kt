@@ -1,4 +1,4 @@
-package org.team2471.frc.Drawing
+package org.team2471.frc.pathvisualizer
 
 import javafx.scene.Group
 import javafx.scene.canvas.Canvas

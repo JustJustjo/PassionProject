@@ -12,7 +12,6 @@ class PathVisualizer : Application() {
     companion object {
         // drawing
         lateinit var stage: Stage
-        public val quit = false
         @JvmStatic
         fun main(args: Array<String>) {
             launch(PathVisualizer::class.java, *args)
@@ -27,8 +26,7 @@ class PathVisualizer : Application() {
 
         val screen = Screen.getPrimary()
 
-        val borderPane = BorderPane(FieldPane)
-        borderPane.top = TopBar
+        val borderPane = BorderPane(DrawingBoard)
         borderPane.top = ControlPanel
 
 
