@@ -7,10 +7,16 @@ import javafx.scene.paint.Color
 
 
 object ColorPanel : VBox(5.0) {
+    val buttonRed = Button("Red")
+    val buttonOrange = Button("Orange")
+    val buttonYellow = Button("Yellow")
+    val buttonGreen = Button("Green")
+    val buttonBlue = Button("Blue")
+    val buttonPurple = Button("Purple")
+    val buttonBlack = Button("Black")
     init {
         println("ColorPanel says hi!")
 
-        val buttonRed = Button("Red")
         buttonRed.style = "-fx-background-color: #ff0000"
         buttonRed.setMinSize(100.0, 100.0)
         buttonRed.setOnAction {
@@ -18,8 +24,6 @@ object ColorPanel : VBox(5.0) {
             changeButtonColor(Color.RED)
             BrushPanel.updatePreview()
         }
-
-        val buttonOrange = Button("Orange")
         buttonOrange.style = "-fx-background-color: #FFA500"
         buttonOrange.setMinSize(100.0, 100.0)
         buttonOrange.setOnAction {
@@ -27,8 +31,6 @@ object ColorPanel : VBox(5.0) {
             changeButtonColor(Color.ORANGE)
             BrushPanel.updatePreview()
         }
-
-        val buttonYellow = Button("Yellow")
         buttonYellow.style = "-fx-background-color: #FFFF00"
         buttonYellow.setMinSize(100.0, 100.0)
         buttonYellow.setOnAction {
@@ -36,8 +38,6 @@ object ColorPanel : VBox(5.0) {
             changeButtonColor(Color.YELLOW)
             BrushPanel.updatePreview()
         }
-
-        val buttonGreen = Button("Green")
         buttonGreen.style = "-fx-background-color: #008000"
         buttonGreen.setMinSize(100.0, 100.0)
         buttonGreen.setOnAction {
@@ -45,8 +45,6 @@ object ColorPanel : VBox(5.0) {
             changeButtonColor(Color.GREEN)
             BrushPanel.updatePreview()
         }
-
-        val buttonBlue = Button("Blue")
         buttonBlue.style = "-fx-background-color: #0000FF"
         buttonBlue.setMinSize(100.0, 100.0)
         buttonBlue.setOnAction {
@@ -54,8 +52,6 @@ object ColorPanel : VBox(5.0) {
             changeButtonColor(Color.BLUE)
             BrushPanel.updatePreview()
         }
-
-        val buttonPurple = Button("Purple")
         buttonPurple.style = "-fx-background-color: #800080"
         buttonPurple.setMinSize(100.0, 100.0)
         buttonPurple.setOnAction {
@@ -63,8 +59,6 @@ object ColorPanel : VBox(5.0) {
             changeButtonColor(Color.PURPLE)
             BrushPanel.updatePreview()
         }
-
-        val buttonBlack = Button("Black")
         buttonBlack.style = "-fx-background-color: #000000"
         buttonBlack.setMinSize(100.0, 100.0)
         buttonBlack.setOnAction {

@@ -11,13 +11,14 @@ object DrawingBoard : Group() {
 
     init {
         println("DrawingBoard says hi!")
+
         gc.setFill(Color.LIGHTGRAY)
         gc.fillRect(0.0, 0.0, 740.0, 740.0)
 
         DrawingBoard.getChildren().add(canvas)
 
-
         canvas.setOnMousePressed {event -> click(event.x, event.y)}
+        canvas.setOnMouseDragged {event -> click(event.x, event.y)}
     }
     fun click(x: Double, y: Double) {
 //        println("Click cords... x:$x  y:$y")
@@ -29,5 +30,8 @@ object DrawingBoard : Group() {
             gc.fillOval(x - PathVisualizer.SELECTED_WIDTH/2, y- PathVisualizer.SELECTED_HEIGHT/2, PathVisualizer.SELECTED_WIDTH, PathVisualizer.SELECTED_HEIGHT)
         }
     }
+    fun clear() {
+        gc.setFill(Color.LIGHTGRAY)
+        gc.fillRect(0.0, 0.0, 740.0, 740.0)
+    }
 }
-/* TODO: Dragging to trigger a line */

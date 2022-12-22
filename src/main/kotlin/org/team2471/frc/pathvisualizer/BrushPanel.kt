@@ -11,8 +11,9 @@ import javafx.scene.paint.Color
 object BrushPanel: VBox(5.0) {
     val buttonCir = Button("Circle")
     val buttonRec = Button("Rectangle")
-    val hSlider = Slider(30.0, 300.0, 10.0)
-    val wSlider = Slider(30.0, 300.0, 10.0)
+    val buttonCle = Button("Clear Drawing")
+    val hSlider = Slider(5.0, 300.0, 5.0)
+    val wSlider = Slider(5.0, 300.0, 5.0)
     val hLabel = Label("Height")
     val wLabel = Label("Width")
     val canvas = Canvas(300.0, 300.0)
@@ -32,7 +33,6 @@ object BrushPanel: VBox(5.0) {
             buttonCir.style = "-fx-background-color: #D3D3D3"
             updatePreview()
         }
-
         buttonCir.setMinSize(100.0, 100.0)
         buttonCir.setOnAction {
             changeSelectedShape("Oval")
@@ -40,14 +40,15 @@ object BrushPanel: VBox(5.0) {
             buttonRec.style = "-fx-background-color: #D3D3D3"
             updatePreview()
         }
-
-
+        buttonCle.setMinSize(100.0, 100.0)
+        buttonCle.setOnAction {
+            DrawingBoard.clear()
+        }
 
         hSlider.setOnMouseReleased { PathVisualizer.SELECTED_HEIGHT = hSlider.value; updatePreview() }
         wSlider.setOnMouseReleased { PathVisualizer.SELECTED_WIDTH = wSlider.value; updatePreview() }
 
-
-        BrushPanel.children.addAll(buttonRec, buttonCir, hLabel, hSlider, wLabel, wSlider, canvas)
+        BrushPanel.children.addAll(buttonRec, buttonCir, hLabel, hSlider, wLabel, wSlider, canvas, buttonCle)
         updatePreview()
     }
     fun changeSelectedShape(s: String) {
