@@ -22,7 +22,12 @@ object DrawingBoard : Group() {
     fun click(x: Double, y: Double) {
 //        println("Click cords... x:$x  y:$y")
         gc.setFill(PathVisualizer.SELECTED_COLOR)
-        gc.fillRect(x - PathVisualizer.SELECTED_WIDTH/2, y- PathVisualizer.SELECTED_HEIGHT/2, PathVisualizer.SELECTED_WIDTH, PathVisualizer.SELECTED_HEIGHT)
-        gc.fill
+        if (PathVisualizer.SELECTED_SHAPE == "Rectangle") {
+            gc.fillRect(x - PathVisualizer.SELECTED_WIDTH/2, y- PathVisualizer.SELECTED_HEIGHT/2, PathVisualizer.SELECTED_WIDTH, PathVisualizer.SELECTED_HEIGHT)
+        }
+        if (PathVisualizer.SELECTED_SHAPE == "Oval") {
+            gc.fillOval(x - PathVisualizer.SELECTED_WIDTH/2, y- PathVisualizer.SELECTED_HEIGHT/2, PathVisualizer.SELECTED_WIDTH, PathVisualizer.SELECTED_HEIGHT)
+        }
     }
 }
+/* TODO: Dragging to trigger a line */

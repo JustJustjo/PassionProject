@@ -12,9 +12,10 @@ class PathVisualizer : Application() {
 
     companion object {
         lateinit var stage: Stage
-
-        val SELECTED_HEIGHT: Double = 100.0
-        val SELECTED_WIDTH: Double = 100.0
+        var BUTTON_COLOR: String = "#000000"
+        var SELECTED_SHAPE: String = "Rectangle"
+        var SELECTED_HEIGHT: Double = 100.0
+        var SELECTED_WIDTH: Double = 100.0
         var SELECTED_COLOR: Color = Color.BLACK
 
         @JvmStatic
@@ -34,6 +35,7 @@ class PathVisualizer : Application() {
 
         val borderPane = BorderPane(DrawingBoard)
         borderPane.left = ColorPanel
+        borderPane.right = BrushPanel
 
 
         val bounds = Rectangle2D(screen.visualBounds.minX, screen.visualBounds.minY, screen.visualBounds.width, screen.visualBounds.height - 30)
