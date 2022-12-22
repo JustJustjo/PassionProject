@@ -38,7 +38,7 @@ dependencies {
     implementation("edu.wpi.first.wpiutil:wpiutil-java:$wpiLibVersion")
     implementation("edu.wpi.first.wpimath:wpimath-java:$wpiLibVersion")
     implementation("edu.wpi.first.wpilibj:wpilibj-java:$wpiLibVersion")
-    implementation("org.team2471.lib:meanlib")
+//    implementation("org.team2471.lib:meanlib")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
     implementation("com.github.gmazzo.buildconfig:com.github.gmazzo.buildconfig.gradle.plugin:3.0.0")
     implementation("com.google.code.gson:gson:2.8.9")
