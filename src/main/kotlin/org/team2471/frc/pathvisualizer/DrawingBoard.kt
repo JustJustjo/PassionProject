@@ -22,7 +22,7 @@ object DrawingBoard : Group() {
     fun click(x: Double, y: Double) {
 //        println("Click cords... x:$x  y:$y")
         gc.setFill(PathVisualizer.SELECTED_COLOR)
-        gc.fillRect(x - PathVisualizer.SQUARE_SIDES/2, y- PathVisualizer.SQUARE_SIDES/2, PathVisualizer.SQUARE_SIDES, PathVisualizer.SQUARE_SIDES)
-//        gc.restore()
+        gc.fillRect(x - PathVisualizer.SELECTED_WIDTH/2, y- PathVisualizer.SELECTED_HEIGHT/2, PathVisualizer.SELECTED_WIDTH, PathVisualizer.SELECTED_HEIGHT)
+        gc.fill
     }
 }

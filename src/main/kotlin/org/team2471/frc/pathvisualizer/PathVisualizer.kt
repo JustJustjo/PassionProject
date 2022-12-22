@@ -11,9 +11,10 @@ import javafx.stage.Stage
 class PathVisualizer : Application() {
 
     companion object {
-        // drawing
         lateinit var stage: Stage
-        val SQUARE_SIDES: Double = 100.0
+
+        val SELECTED_HEIGHT: Double = 100.0
+        val SELECTED_WIDTH: Double = 100.0
         var SELECTED_COLOR: Color = Color.BLACK
 
         @JvmStatic
@@ -32,7 +33,7 @@ class PathVisualizer : Application() {
         val screen = Screen.getPrimary()
 
         val borderPane = BorderPane(DrawingBoard)
-        borderPane.top = ControlPanel
+        borderPane.left = ColorPanel
 
 
         val bounds = Rectangle2D(screen.visualBounds.minX, screen.visualBounds.minY, screen.visualBounds.width, screen.visualBounds.height - 30)
