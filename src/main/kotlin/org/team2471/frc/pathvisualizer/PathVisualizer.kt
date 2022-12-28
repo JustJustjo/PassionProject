@@ -27,7 +27,7 @@ class PathVisualizer : Application() {
 
 
     override fun start(stage: Stage) {
-        stage.title = "Drawer"
+        stage.title = "Drawing"
         PathVisualizer.stage = stage
 
         val screen = Screen.getPrimary()
