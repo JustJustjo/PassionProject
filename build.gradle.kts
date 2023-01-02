@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.gradle.jvm.tasks.Jar
 
 plugins {
     java
@@ -7,9 +8,22 @@ plugins {
     id("com.github.gmazzo.buildconfig") version "3.0.0"
     id("org.openjfx.javafxplugin") version "0.0.10"
 }
+val mainClass = "org.team2471.frc.pathvisualizer.Main"
 
-buildConfig {
-    buildConfigField ("long", "BUILD_TIME", "${System.currentTimeMillis()}L")
+tasks {
+    register("fatJar", Jar::class.java) {
+        archiveClassifier.set("all")
+        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+        manifest {
+            attributes("Main-Class" to mainClass)
+        }
+        from(configurations.runtimeClasspath.get()
+            .onEach { println("add from dependencies: ${it.name}") }
+            .map { if (it.isDirectory) it else zipTree(it) })
+        val sourcesMain = sourceSets.main.get()
+        sourcesMain.allSource.forEach { println("add from sources: ${it.name}") }
+        from(sourcesMain.output)
+    }
 }
 
 val wpiLibVersion = "2022.1.1"
@@ -26,7 +40,7 @@ javafx {
     modules = "javafx.controls".split(",").toMutableList()
 }
 application {
-    mainClass.set("org.team2471.frc.pathvisualizer.PathVisualizer")
+    mainClass.set("org.team2471.frc.pathvisualizer.Main")
 }
 
 dependencies {
